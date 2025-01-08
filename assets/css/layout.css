@@ -3,11 +3,14 @@
   /* como o layout é simples pelo figma peguei o tamanho da tela do lado esquerdo q é 656px e multipliquei por 100 depois dividi pelo valor somado pelas duas partes da tela que deu 1280px que deu 51,25 lado esquerdo e o restante direito.*/
   grid-template-columns: 51.25% 48.75%;
   height: 100vh;
+  /* para n criar rolagem como é forms faz sentido */
   overflow: hidden;
 }
 
 
 main{
+
+  /* para criar rolagem no lado q precisa*/
   overflow: auto;
   /* calculo do rem pega a quantidade de px e divide por 16 no caso padding 64px/16 = 4*/
   padding: 4rem;
@@ -17,6 +20,20 @@ main{
   & .main-container{
     max-width: 33rem;
   }
+
+  & .back{
+    /* deixar uma coisa ao lado de outra */
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  & h1{
+    font: 600 1.5rem/1.25 var(--font-family);
+    /* 8/16 = 0.5 */
+    margin-bottom: .5rem;
+  }
 }
 
 aside{
@@ -24,5 +41,18 @@ aside{
   padding: 4rem;
   & .aside-container{
     max-width: 31rem;
+
+    /* dentro do aside.container quero o primeiro nivel de img */
+    & > img{
+      margin-top: 2rem;
+    }
+  }
+
+  & h2{
+    font: 600 2.5rem/1.25 var(--font-family);
+    margin-bottom: .5rem;
+    & span{
+      color: var(--text-highlight);
+    }
   }
 }
