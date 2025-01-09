@@ -2,5 +2,5 @@
 @import url(./global.css);
 @import url(./layout.css);
 @import url(./forms.css);
-@import url(../../assets/css/fields/index.css);
-@import url(../../assets/css/fields/droparea.css);
+@import url(./fields/index.css);
+@import url(./fields/droparea.css);
