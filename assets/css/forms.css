@@ -13,3 +13,10 @@ legend{
   font: 600 1rem/1.25 var(--font-family);
   margin-bottom: 1.5rem;
 }
+
+
+
+/* se esse fieldset anterior a ele tiver outro fieldset */
+fieldset + fieldset{
+  margin-top: 3rem;
+}
