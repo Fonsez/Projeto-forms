@@ -1,0 +1,109 @@
+input, textarea, select{
+  /* tira seta */
+  appearance: none;
+  width: 100%;
+  border-radius: .5rem;
+  border: 1px solid var(--stroke-default);
+
+  padding: .75rem 1rem;
+  font: var(--text);
+  
+}
+
+label{
+  font: var(--text-sm);
+  color: var(--text-secondary);
+
+  /* porque coloquei display block em elemento inline?
+  pq se n colocar ele n aceita margin bottom */
+  display: block;
+  margin-bottom: .25rem;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus,
+input[type="date"]:focus-within{
+  outline: .25rem solid var(--surface-secondary);
+  border: .125rem solid var(--stroke-highlight);
+  
+  /* colocar para que a borda do focus apareça em todos os browsers */
+  /* como se fosse um hackzinho */
+  outline-offset: .1px;
+}
+
+input[type="date"]{
+  position: relative;
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    background: url(../../icons/calendar-03.svg) center/contain;
+    right: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    /* forma de alinhar ao meio elementos absolutos */
+    top: 50%;
+    transform: translateY(-50%);
+
+  }
+}
+
+
+select{
+  background: url(../../icons/arrow-down-01.svg) no-repeat calc(100% - 1rem);
+  
+}
+
+.adress .flex{
+  gap: 1.25rem;
+
+}
+
+.input-wrapper:has([disabled]){
+  opacity: .5;
+}
+
+input{
+  &[disabled]{
+    background-color: var(--surface-disabled);
+
+    border: 1px solid var(--stroke-default);
+
+    color: var(--text-primary);
+  }
+
+
+  /* vai ver quando o campo vai estar invalidado */
+  &:invalid{
+    border: 0.125rem solid var(--semantic-error);
+  }
+
+  & + small {
+    font: var(--text-sm);
+    color: #78716c;
+    display: inline-block;
+    margin-top: .25rem;
+  }
+
+  &[required] + .error{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+
+    font: var(--text-sm);
+    color: var(--semantic-error);
+
+    margin-top: .25rem;
+  }
+
+
+  &:valid + .error{
+    display: none;
+  }
+}
